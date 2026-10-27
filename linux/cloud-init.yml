@@ -1,0 +1,17 @@
+#cloud-config
+package_update: true
+
+packages:
+  - openjdk-21-jdk
+  - git
+  - snapd
+
+runcmd:
+  - snap install eclipse --classic
+  - install -d -o ubuntu -g ubuntu /home/ubuntu/projects
+  - |
+    if [ ! -d /home/ubuntu/projects/hybris-commerce-eclipse-plugin/.git ]; then
+      sudo -u ubuntu git clone \
+        https://github.com/SAP/hybris-commerce-eclipse-plugin.git \
+        /home/ubuntu/projects/hybris-commerce-eclipse-plugin
+    fi
