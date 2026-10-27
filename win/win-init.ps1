@@ -36,7 +36,7 @@ $env:Path = (
 ) -join ";"
 
 $gitExecutable = (Get-Command git -ErrorAction Stop).Source
-$projectRoot = "C:\Projects"
+$projectRoot = "C:\SAPDevelop"
 $repositoryPath = Join-Path $projectRoot "hybris-commerce-eclipse-plugin"
 
 New-Item -ItemType Directory -Force -Path $projectRoot | Out-Null
